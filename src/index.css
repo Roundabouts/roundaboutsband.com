@@ -17,3 +17,18 @@ a {
 a:hover {
   color: #FFF;
 }
+
+/* Hacky social icon shadows */
+.social-icon {
+  position: relative;
+  z-index: 10;
+  transition: all 0.4s;
+}
+
+.social-icon-shadow {
+  z-index: 0;
+  color: #000;
+  filter: blur(6px);
+  opacity: 0.8;
+  transition: all 0.4s;
+}
