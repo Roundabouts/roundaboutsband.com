@@ -6,8 +6,15 @@ import SocialIcon from '../Components/Social/SocialIcon';
 import VideoBackground from '../Components/VideBackground';
 
 const item: Variants = {
-  hidden: { y: '0.3em', opacity: 0 },
-  visible: { y: 0, opacity: 1, transition: { duration: 1 } },
+  hidden: {
+    y: '0.3em',
+    opacity: 0,
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: { duration: 0.6, opacity: { duration: 1.2 } },
+  },
 };
 
 function MainScreen() {
@@ -20,8 +27,8 @@ function MainScreen() {
       <Content>
         <motion.div
           initial={{ opacity: 0, scale: 0.86 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 1 }}
+          animate={{ opacity: 0.8, scale: 1 }}
+          transition={{ duration: 1, opacity: { duration: 1.8 } }}
         >
           <RoundaboutsLogo />
         </motion.div>
@@ -34,7 +41,7 @@ function MainScreen() {
             variants={{
               visible: {
                 transition: {
-                  delayChildren: 2,
+                  delayChildren: 1,
                   staggerChildren: 0.3,
                 },
               },
