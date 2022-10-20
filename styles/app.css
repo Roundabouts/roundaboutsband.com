@@ -10,6 +10,12 @@ body {
   color: #fff;
 }
 
+html, body {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 a {
   color: #999;
   text-decoration: none;
