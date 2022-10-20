@@ -12,8 +12,8 @@ export default function Document() {
         <Main />
         <NextScript />
 
-        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" />
-        <script noModule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js" />
+        <script async type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" />
+        <script async noModule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js" />
       </body>
     </Html>
   )

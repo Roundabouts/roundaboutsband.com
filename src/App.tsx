@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import MainScreen from './Screens/MainScreen';
 
 function App() {
