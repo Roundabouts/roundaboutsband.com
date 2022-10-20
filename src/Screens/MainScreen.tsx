@@ -4,6 +4,7 @@ import { motion, Variants } from 'framer-motion';
 import RoundaboutsLogo from '../Components/RoundaboutsLogo';
 import SocialIcon from '../Components/Social/SocialIcon';
 import VideoBackground from '../Components/VideBackground';
+import AppContainer from '../Components/UI/AppContainer';
 
 const item: Variants = {
   hidden: {
@@ -19,7 +20,7 @@ const item: Variants = {
 
 function MainScreen() {
   return (
-    <Container>
+    <AppContainer>
       <VideoBackground />
 
       <Header></Header>
@@ -77,17 +78,9 @@ function MainScreen() {
           </AnimatedSocialIcon>
         </AnimatedSocialIconsContainer>
       </Footer>
-    </Container>
+    </AppContainer>
   );
 }
-
-const Container = styled.div`
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-`;
 
 const Header = styled.div`
   flex: 1;
