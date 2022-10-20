@@ -2,7 +2,7 @@ import { ReactElement } from 'react';
 import styled from 'styled-components';
 
 export interface ContainerProps {
-    children: ReactElement;
+    children: ReactElement | ReactElement[];
 }
 
 const AppContainer = ({ children }: ContainerProps) => (
