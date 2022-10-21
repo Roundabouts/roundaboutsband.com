@@ -52,28 +52,28 @@ function MainScreen() {
             <SocialIcon
               name="facebook"
               url="https://www.facebook.com/roundaboutsband"
-              icon="IoLogoFacebook"
+              icon="FaFacebookSquare"
             />
           </AnimatedSocialIcon>
           <AnimatedSocialIcon variants={item}>
             <SocialIcon
               name="instagram"
               url="https://www.instagram.com/roundaboutsband"
-              icon="IoLogoInstagram"
+              icon="FaInstagram"
             />
           </AnimatedSocialIcon>
           <AnimatedSocialIcon variants={item}>
             <SocialIcon
               name="tiktok"
               url="https://www.tiktok.com/@roundaboutsband"
-              icon="IoLogoTiktok"
+              icon="FaTiktok"
             />
           </AnimatedSocialIcon>
           <AnimatedSocialIcon variants={item}>
             <SocialIcon
               name="youtbube"
               url="https://www.youtube.com/channel/UCbJAWKjqUS1ZxJYf7PMcemA"
-              icon="IoLogoYoutube"
+              icon="FaYoutube"
             />
           </AnimatedSocialIcon>
         </AnimatedSocialIconsContainer>

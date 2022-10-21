@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import * as IoIcon from 'react-icons/io5';
+import * as IoIcon from 'react-icons/fa';
 
 export interface SocialIconProps {
     name: string;
