@@ -1,5 +1,6 @@
 import Document from 'next/document'
 import { Html, Head, Main, NextScript, DocumentContext, DocumentInitialProps } from 'next/document'
+import Script from 'next/script'
 import { ServerStyleSheet } from 'styled-components'
 
 export default class NextDocument extends Document {
@@ -42,6 +43,19 @@ export default class NextDocument extends Document {
         <body>
           <Main />
           <NextScript />
+
+          {/* Global site tag (gtag.js) - Google Analytics */}
+          <Script src="https://www.googletagmanager.com/gtag/js?id=G-Q6H8XHH81D" strategy="afterInteractive" />
+          <Script id="google-analytics" strategy="afterInteractive">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-Q6H8XHH81D');
+            `}
+          </Script>
+
+          {/* Ionicons */}
           <script async type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" />
           <script async noModule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js" />
         </body>
