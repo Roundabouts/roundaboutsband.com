@@ -1,0 +1,40 @@
+body {
+  background-color: #111;
+  background-image: url("../public/images/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  color: #fff;
+}
+
+html, body {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #999;
+  text-decoration: none;
+}
+a:hover {
+  color: #FFF;
+}
+
+/* Hacky social icon shadows */
+.social-icon {
+  position: relative;
+  z-index: 10;
+  transition: all 0.4s;
+}
+
+.social-icon-shadow {
+  z-index: 0;
+  color: #000;
+  filter: blur(6px);
+  opacity: 0.8;
+  transition: all 0.4s;
+}
