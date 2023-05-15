@@ -71,9 +71,16 @@ function MainScreen() {
           </AnimatedSocialIcon>
           <AnimatedSocialIcon variants={item}>
             <SocialIcon
-              name="youtbube"
+              name="youtube"
               url="https://www.youtube.com/channel/UCbJAWKjqUS1ZxJYf7PMcemA"
               icon="FaYoutube"
+            />
+          </AnimatedSocialIcon>
+          <AnimatedSocialIcon variants={item}>
+            <SocialIcon
+              name="soundcloud"
+              url="https://soundcloud.com/roundaboutsband"
+              icon="FaSoundcloud"
             />
           </AnimatedSocialIcon>
         </AnimatedSocialIconsContainer>
