@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { motion, Variants } from 'framer-motion';
 import RoundaboutsLogo from '../Components/RoundaboutsLogo';
 import SocialIcon from '../Components/Social/SocialIcon';
-import VideoBackground from '../Components/VideBackground';
+import VideoBackground from '../Components/VideoBackground';
 import AppContainer from '../Components/UI/AppContainer';
 
 const item: Variants = {
