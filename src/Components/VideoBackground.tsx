@@ -1,10 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const VideoBackground = () => (
+interface Props {
+    autoPlay?: boolean;
+}
+
+const VideoBackground = ({
+    autoPlay = true,
+}: Props) => (
     <div className="App">
         <Background>
-            <Video autoPlay muted loop>
+            <Video autoPlay={autoPlay} muted loop>
                 <source src="videos/promo-midnite.mp4" type="video/mp4" />
                 <source src="videos/promo-midnite.webm" type="video/webm" />
             </Video>
