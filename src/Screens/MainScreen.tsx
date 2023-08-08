@@ -18,7 +18,9 @@ const item: Variants = {
   },
 };
 
-function MainScreen() {
+interface MainScreenProps {}
+
+function MainScreen({}: MainScreenProps) {
   return (
     <AppContainer>
       <VideoBackground />
