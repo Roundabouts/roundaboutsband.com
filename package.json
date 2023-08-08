@@ -10,8 +10,9 @@
     "@types/node": "^16.11.64",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
-    "contentful": "^10.2.3",
-    "contentful-management": "^10.36.0",
+    "contentful": "^9",
+    "contentful-management": "^9",
+    "date-fns": "^2.30.0",
     "framer-motion": "^7.5.3",
     "next": "^12.3.1",
     "react": "^18.2.0",
@@ -26,7 +27,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "contentful-typescript-codegen": "contentful-typescript-codegen --output @types/generated/contentful.d.ts"
+    "generate:types": "contentful-typescript-codegen --output src/@types/contentful.d.ts"
   },
   "browserslist": {
     "production": [
