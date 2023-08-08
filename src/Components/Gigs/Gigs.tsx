@@ -32,7 +32,7 @@ function Gigs({
           <Gig key={i}>
             <Date>{FormatUtils.formatIsoDate(event.date, 'd MMMM')}</Date>
             <Name>{event.title}</Name>
-            <Location>{event.location}</Location>
+            <Location>{event.location}, {event.country}</Location>
           </Gig>
         ))}
       </Content>
@@ -59,23 +59,22 @@ const Gig = styled.div`
 
 const Date = styled.div`
   flex: 3;
-  font-weight: 500;
 `;
 
 const Name = styled.div`
   flex: 5;
   color: #FCD7AA;
-  text-align: right;
-  padding-right: 1em;
+  text-align: left;
 `;
 const Location = styled.div`
   flex: 3;
+  text-align: right;
 `;
 
 const Content = styled.div`
   display: flex;
   flex: 1;
-  max-width: 800px;
+  max-width: 900px;
   flex-direction: column;;
 `;
 

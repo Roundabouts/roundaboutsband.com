@@ -45,7 +45,10 @@ export interface IEventFields {
   date: string;
 
   /** Location */
-  location?: { lat: number; lon: number } | undefined;
+  location: string;
+
+  /** Country */
+  country: string;
 
   /** Url */
   url?: string | undefined;

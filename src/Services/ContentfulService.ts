@@ -14,7 +14,8 @@ export interface WebsiteData {
 export interface Event {
   title: string;
   date: string;
-  location?: any;
+  location?: string;
+  country: string;
   url: string | null;
   ticketsUrl: string | null;
   type: 'gig';
@@ -33,6 +34,7 @@ class ContentfulParser {
       title: entry.fields.title,
       date: entry.fields.date,
       location: entry.fields.location,
+      country: entry.fields.country,
       url: entry.fields.url || null,
       ticketsUrl: entry.fields.ticketsUrl || null,
       type: entry.fields.type,
