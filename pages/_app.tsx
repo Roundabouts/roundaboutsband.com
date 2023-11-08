@@ -11,7 +11,7 @@ function App({ Component, pageProps }: AppProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="theme-color" content="#191B1D" />
 
-        <meta name="description" content="Metal infused hard rock from Twente (NL). Currently working on new songs!" />
+        <meta name="description" content="Hard rock from Overijssel, The Netherlands. This 5-piece hard rock formation is bursting with enthusiasm and can't wait to present their music to you!" />
         <link rel="apple-touch-icon" href="/logo192.png" />
 
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
