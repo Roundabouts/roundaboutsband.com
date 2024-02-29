@@ -5,6 +5,7 @@ import format from 'date-fns/format';
 import formatISO from 'date-fns/formatISO';
 import { FormatUtils } from '../../Utils';
 import { Event } from '../../Services/ContentfulService';
+import { FaGlobeAmericas, FaTicketAlt } from "react-icons/fa";
 
 const item: Variants = {
   hidden: {
@@ -27,56 +28,117 @@ function Gigs({
 }: GigsProps) {
   return (
       <Content>
-        <YearTitle>2023</YearTitle>
         {events.map((event, i) => (
           <Gig key={i}>
-            <Date>{FormatUtils.formatIsoDate(event.date, 'd MMMM')}</Date>
-            <Name>{event.title}</Name>
+            <Date>
+              {FormatUtils.formatIsoDate(event.date, 'd MMMM')}
+            </Date>
+            <Middle>
+              <NameWrapper>
+                <Name>{event.title}</Name>
+                {event.soldOut && (
+                  <SoldOutLabel>Sold out</SoldOutLabel>
+                )}
+              </NameWrapper>
+              <Note>{event.note}</Note>
+            </Middle>
             <Location>{event.location}, {event.country}</Location>
+
+            <Links>
+              <Link target="_blank" href={event.url ?? undefined} disabled={!event.url}>
+                <FaGlobeAmericas title="Website link" />
+              </Link>
+              <Link target="_blank" href={event.ticketsUrl ?? undefined} disabled={!event.ticketsUrl}>
+                <FaTicketAlt title="Tickets link" />
+              </Link>
+            </Links>
           </Gig>
         ))}
       </Content>
   );
 }
 
-const YearTitle = styled.h1`
-  align-self: center;;
-  font-size: 6em;
-  font-weight: 900;
-  margin-bottom: 0.1em;
-`
+const Content = styled.div`
+  display: flex;
+  flex: 1;
+  flex-direction: column;;
+`;
 
 const Gig = styled.div`
   display: flex;
+  margin: 4px;
+  min-height: 1.7em;
   flex: 1;
   flex-direction: row;
-  margin: 4px;
+  justify-content: flex-start;;
   text-transform: uppercase;
-  font-size: 1.5em;
+  font-size: 1.3em;
   color: #637674;
   font-weight: 900;
 `;
 
 const Date = styled.div`
-  flex: 3;
+  flex: 2;
+  color: #96aeac;
+  text-align: right;
+  padding-right: 1em;
 `;
 
-const Name = styled.div`
+const Middle = styled.div`
   flex: 5;
+`;
+
+const Links = styled.div`
+  margin-top: 0.2em;
+  margin-left: 1em;
+  font-size: 0.8em;
+  color: #FFFFFFEE;
+
+  * {
+    margin: 0 0.16em;
+  }
+`;
+
+const Link = styled.a<{ disabled?: boolean }>`
+  opacity: ${props => props.disabled ? 0.2 : 1};
+`;
+
+const NameWrapper = styled.div`
+  display: flex;;
+  flex-direction: row;
+  align-items: center;
+`;
+
+const Name = styled.span`
   color: #FCD7AA;
   text-align: left;
 `;
+
+const SoldOutLabel = styled.div`
+  margin-left: 0.6em;
+  border-radius: 3px;
+  border: 1px solid red;
+  padding: 0.2em 0.4em;
+  font-size: 0.5em;
+  text-transform: uppercase;;
+  color: red;
+  opacity: 0.8;
+`;
+
+
+const Note = styled.span`
+  display: block;
+  font-size: 0.5em;
+  color: #FFFFFF;
+  opacity: 0.4;
+  font-weight: normal;
+`;
+
 const Location = styled.div`
   flex: 3;
   text-align: right;
 `;
 
-const Content = styled.div`
-  display: flex;
-  flex: 1;
-  max-width: 900px;
-  flex-direction: column;;
-`;
 
 
 export default Gigs;

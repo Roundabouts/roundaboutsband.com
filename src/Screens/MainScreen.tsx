@@ -5,37 +5,37 @@ import RoundaboutsLogo from '../Components/RoundaboutsLogo';
 import SocialIcon from '../Components/Social/SocialIcon';
 import VideoBackground from '../Components/VideoBackground';
 import AppContainer from '../Components/UI/AppContainer';
+import LandingImage from '../Components/LandingImage';
+import Gigs from '../Components/Gigs/Gigs';
+import { EventUtils } from '../Utils/EventUtils';
+import { Vignette } from '../Components/UI/Vignette';
+import Header from '../Components/Header';
+import { Event } from '../Services/ContentfulService';
 
-const item: Variants = {
-  hidden: {
-    y: '0.3em',
-    opacity: 0,
-  },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: { duration: 0.6, opacity: { duration: 1.2 } },
-  },
-};
+interface MainScreenProps {
+  events: Array<Event>,
+}
 
-interface MainScreenProps {}
+function MainScreen({
+  events = []
+}: MainScreenProps) {
+  const futureEvents = events
+    .filter(event => EventUtils.isFutureEvent(event))
+    .slice(0, 8);
 
-function MainScreen({}: MainScreenProps) {
   return (
     <AppContainer>
-      <VideoBackground />
-
-      <Header></Header>
+      <Vignette />
+      <Header />
 
       <Content>
-        <motion.div
-          initial={{ opacity: 0, scale: 0.86 }}
-          animate={{ opacity: 0.8, scale: 1 }}
-          transition={{ duration: 1, opacity: { duration: 1.8 } }}
-        >
-          <RoundaboutsLogo />
-        </motion.div>
+        <LandingImage src="images/landing/outta-your-mind.jpg" />
       </Content>
+
+      <Block>
+        <GigsHeading>Upcoming gigs</GigsHeading>
+        <Gigs events={futureEvents} />
+      </Block>
 
       <Footer>
         <AnimatedSocialIconsContainer
@@ -91,15 +91,31 @@ function MainScreen({}: MainScreenProps) {
   );
 }
 
-const Header = styled.div`
-  flex: 1;
-`;
-
 const Content = styled.div`
   display: flex;
   flex: 1;
   align-items: center;
   justify-content: center;
+`;
+
+const Block = styled.div`
+  position: relative;
+  width: 100%;
+  max-width: 980px;
+  display: flex;
+  padding: 4em 0;
+  flex: 1;
+  /* max-width: 980px; */
+  flex-direction: column;
+`;
+
+const GigsHeading = styled.h1`
+  font-size: 3em;
+  line-height: 1em;
+  text-shadow: 0.4rem 0.2rem 1rem #00000099;
+  text-transform: uppercase;;
+  align-self: center;
+
 `;
 
 const Footer = styled.div`
@@ -122,6 +138,17 @@ const AnimatedSocialIcon = styled(motion.li)`
   padding: 0;
 `;
 
+const item: Variants = {
+  hidden: {
+    y: '0.3em',
+    opacity: 0,
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: { duration: 0.6, opacity: { duration: 1.2 } },
+  },
+};
 
 
 export default MainScreen;
