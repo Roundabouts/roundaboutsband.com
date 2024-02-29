@@ -13,12 +13,13 @@ export interface WebsiteData {
 
 export interface Event {
   title: string;
+  note: string | null;
   date: string;
   location?: string;
   country: string;
   url: string | null;
   ticketsUrl: string | null;
-  type: 'gig';
+  soldOut: boolean;
 }
 
 class ContentfulParser {
@@ -32,12 +33,13 @@ class ContentfulParser {
   static parseEvent(entry: IEvent): Event {
     return {
       title: entry.fields.title,
+      note: entry.fields.note || null,
       date: entry.fields.date,
       location: entry.fields.location,
       country: entry.fields.country,
       url: entry.fields.url || null,
       ticketsUrl: entry.fields.ticketsUrl || null,
-      type: entry.fields.type,
+      soldOut: !!entry.fields.soldOut,
     };
   }
 }
@@ -59,3 +61,12 @@ export async function getEvents() {
   return response.items.map(item => ContentfulParser.parseEvent(item as any));
 }
 
+
+export async function getFrontpageImages() {
+  const response = await client.getAssets<IEvent>({
+    content_type: 'event',
+    order: 'fields.date',
+  });
+
+  return response.items.map(item => ContentfulParser.parseEvent(item as any));
+}
