@@ -1,10 +1,18 @@
+@font-face {
+  font-family: 'Cassanet';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Lato"), url("../public/fonts/cassannet_plus_regular-webfont.ttf");
+}
+
 body {
   background-color: #111;
   background-image: url("../public/images/background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  
+  background-attachment: fixed;
+
   font-family: 'Roboto', sans-serif;
   font-size: 18px;
   color: #fff;
@@ -14,6 +22,11 @@ html, body {
   min-height: 100%;
   margin: 0;
   padding: 0;
+}
+
+h1 {
+  font-family: 'Cassanet', sans-serif;
+
 }
 
 a {
