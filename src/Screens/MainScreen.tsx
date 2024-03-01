@@ -26,14 +26,14 @@ function MainScreen({
   return (
     <AppContainer>
       <Vignette />
-      <Header />
+      <Header currentPage="home" />
 
       <Content>
         <LandingImage src="images/landing/outta-your-mind.jpg" />
       </Content>
 
       <Block>
-        <GigsHeading>Upcoming gigs</GigsHeading>
+        <GigsHeading>Upcoming gigsbela</GigsHeading>
         <Gigs events={futureEvents} />
       </Block>
 
