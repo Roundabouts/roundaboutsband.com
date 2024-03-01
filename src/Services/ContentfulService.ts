@@ -63,9 +63,8 @@ export async function getEvents() {
 
 
 export async function getFrontpageImages() {
-  const response = await client.getAssets<IEvent>({
-    content_type: 'event',
-    order: 'fields.date',
+  const response = await client.getAssets({
+    // todo
   });
 
   return response.items.map(item => ContentfulParser.parseEvent(item as any));
