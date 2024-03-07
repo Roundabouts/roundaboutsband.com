@@ -10,8 +10,8 @@ const Header = ({
     <Container>
         <Logo id="logo" src="images/logo/roundabouts-logo-white.svg" />
         <Menu>
-            <MenuItem selected={currentPage === 'home'} href="/">Home</MenuItem>
-            <MenuItem selected={currentPage === 'events'} href="/events">Shows</MenuItem>
+            {/* <MenuItem selected={currentPage === 'home'} href="/">Home</MenuItem>
+            <MenuItem selected={currentPage === 'events'} href="/events">Shows</MenuItem> */}
         </Menu>
     </Container>
 );
