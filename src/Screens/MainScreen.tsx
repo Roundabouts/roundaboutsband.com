@@ -155,6 +155,7 @@ const GigsHeading = styled.h1`
 const Footer = styled.div`
   display: flex;
   flex: 1;
+  padding-bottom: 3em;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
