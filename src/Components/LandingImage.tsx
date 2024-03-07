@@ -24,7 +24,7 @@ const LandingImage = ({
 const Container = styled.div`
     position: relative;
     width: 100vw;
-    height: 90vh;
+    height: 80vh;
 
     display: flex;
     align-items: center;

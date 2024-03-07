@@ -11,6 +11,9 @@ import { EventUtils } from '../Utils/EventUtils';
 import { Vignette } from '../Components/UI/Vignette';
 import Header from '../Components/Header';
 import { Event } from '../Services/ContentfulService';
+import dynamic from 'next/dynamic';
+
+const ReactPlayer = dynamic(() => import('react-player/lazy'), { ssr: false });
 
 interface MainScreenProps {
   events: Array<Event>,
@@ -21,7 +24,7 @@ function MainScreen({
 }: MainScreenProps) {
   const futureEvents = events
     .filter(event => EventUtils.isFutureEvent(event))
-    .slice(0, 8);
+    // .slice(0, 8);
 
   return (
     <AppContainer>
@@ -33,9 +36,19 @@ function MainScreen({
       </Content>
 
       <Block>
-        <GigsHeading>Upcoming gigsbela</GigsHeading>
+        <GigsHeading>Upcoming gigs</GigsHeading>
         <Gigs events={futureEvents} />
       </Block>
+
+      <VideoBlock>
+        <GigsHeading>Outta Your Mind</GigsHeading>
+        <VideoPlayer
+          url="https://youtu.be/IVP-hu2gMZM?si=VptHvr3YzIdhjTIo?rel=0"
+          width="100%"
+          height="500px"
+          controls={true}
+        />
+      </VideoBlock>
 
       <Footer>
         <AnimatedSocialIconsContainer
@@ -105,16 +118,37 @@ const Block = styled.div`
   display: flex;
   padding: 4em 0;
   flex: 1;
-  /* max-width: 980px; */
   flex-direction: column;
 `;
 
+const VideoBlock = styled(Block)`
+  margin: 4em 0;
+  max-width: 100%;
+  background-color: #00000055;
+  align-items: center;
+  justify-content: center;;
+  padding: 0;
+`;
+
+const VideoPlayer = styled(ReactPlayer)`
+    width: 100%;
+    max-width: 980px;
+`;
+
 const GigsHeading = styled.h1`
-  font-size: 3em;
+  position: absolute;
+  top: -1.2em;
+  padding: 0.5em 0.6em 0.2em;
+  background-color: #EF1E66;
+  border-bottom: 0.1em solid yellow;
+  margin-left: 2em;
+
+  font-size: 2em;
   line-height: 1em;
-  text-shadow: 0.4rem 0.2rem 1rem #00000099;
+  /* text-shadow: 0.4rem 0.2rem 1rem #00000099; */
   text-transform: uppercase;;
-  align-self: center;
+  transform: rotate(-2deg);
+  display: none;
 
 `;
 

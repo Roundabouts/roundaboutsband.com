@@ -20,18 +20,23 @@ const item: Variants = {
 };
 
 interface GigsProps {
-  events: Array<Event>,
+  events: Array<Event>;
+  hideLinks?: boolean;
 }
 
 function Gigs({
-  events = []
+  events = [],
+  hideLinks = false,
 }: GigsProps) {
   return (
       <Content>
         {events.map((event, i) => (
           <Gig key={i}>
             <Date>
-              {FormatUtils.formatIsoDate(event.date, 'd MMMM')}
+              <DateWrapper>
+                {FormatUtils.formatIsoDate(event.date, 'd MMMM')}
+              </DateWrapper>
+              <Note>{FormatUtils.formatIsoDate(event.date, 'EEEE')}</Note>
             </Date>
             <Middle>
               <NameWrapper>
@@ -44,14 +49,16 @@ function Gigs({
             </Middle>
             <Location>{event.location}, {event.country}</Location>
 
-            <Links>
-              <Link target="_blank" href={event.url ?? undefined} disabled={!event.url}>
-                <FaGlobeAmericas title="Website link" />
-              </Link>
-              <Link target="_blank" href={event.ticketsUrl ?? undefined} disabled={!event.ticketsUrl}>
-                <FaTicketAlt title="Tickets link" />
-              </Link>
-            </Links>
+            {hideLinks !== true && (
+              <Links>
+                <Link target="_blank" href={event.url ?? undefined} disabled={!event.url}>
+                  <FaGlobeAmericas title="Website link" />
+                </Link>
+                <Link target="_blank" href={event.ticketsUrl ?? undefined} disabled={!event.ticketsUrl}>
+                  <FaTicketAlt title="Tickets link" />
+                </Link>
+              </Links>
+            )}
           </Gig>
         ))}
       </Content>
@@ -81,6 +88,12 @@ const Date = styled.div`
   color: #96aeac;
   text-align: right;
   padding-right: 1em;
+`;
+
+const DateWrapper = styled.div`
+  display: inline-flex;
+  flex-direction: row;
+  text-align: right;
 `;
 
 const Middle = styled.div`
@@ -116,11 +129,11 @@ const Name = styled.span`
 const SoldOutLabel = styled.div`
   margin-left: 0.6em;
   border-radius: 3px;
-  border: 1px solid red;
+  border: 1px solid #F23F0D;
   padding: 0.2em 0.4em;
   font-size: 0.5em;
   text-transform: uppercase;;
-  color: red;
+  color: #F23F0D;
   opacity: 0.8;
 `;
 

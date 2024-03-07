@@ -43,7 +43,14 @@ function EventsScreen({
             verder
           </Button>
         </GigsHeading>
-        <Gigs events={futureEvents} />
+
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+        <Gigs
+          hideLinks
+          events={futureEvents}
+        />
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
       </Block>
 
       <Footer>
@@ -110,7 +117,7 @@ const Content = styled.div`
 const Block = styled.div`
   position: relative;
   width: 100%;
-  max-width: 980px;
+  max-width: 850px;
   display: flex;
   padding: 4em 0;
   flex: 1;
