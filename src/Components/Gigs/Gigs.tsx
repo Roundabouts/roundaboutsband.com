@@ -34,7 +34,7 @@ function Gigs({
           <Gig key={i}>
             <Date>
               <DateWrapper>
-                {FormatUtils.formatIsoDate(event.date, 'd MMMM')}
+                {FormatUtils.formatIsoDate(event.date, 'MMMM d')}th
               </DateWrapper>
               <Note>{FormatUtils.formatIsoDate(event.date, 'EEEE')}</Note>
             </Date>
@@ -47,7 +47,7 @@ function Gigs({
               </NameWrapper>
               <Note>{event.note}</Note>
             </Middle>
-            <Location>{event.location}, {event.country}</Location>
+            <Location>{event.location} ({event.country})</Location>
 
             {hideLinks !== true && (
               <Links>
