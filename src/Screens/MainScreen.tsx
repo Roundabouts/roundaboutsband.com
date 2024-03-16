@@ -1,9 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion, Variants } from 'framer-motion';
-import RoundaboutsLogo from '../Components/RoundaboutsLogo';
 import SocialIcon from '../Components/Social/SocialIcon';
-import VideoBackground from '../Components/VideoBackground';
 import AppContainer from '../Components/UI/AppContainer';
 import LandingImage from '../Components/LandingImage';
 import Gigs from '../Components/Gigs/Gigs';
@@ -32,7 +30,7 @@ function MainScreen({
       <Header currentPage="home" />
 
       <Content>
-        <LandingImage src="images/landing/outta-your-mind.jpg" />
+        <LandingImage />
       </Content>
 
       <Block>

@@ -1,7 +1,7 @@
-import { motion } from 'framer-motion';
 import React from 'react';
 import styled from 'styled-components';
-import RoundaboutsLogo from './RoundaboutsLogo';
+import Image from 'next/image';
+import OuttaYourMind from '../../public/images/landing/outta-your-mind.jpg';
 
 interface Props {
     src: string;
@@ -12,11 +12,9 @@ const LandingImage = ({
 }: Props) => (
     <Container>
         <Logo id="logo" src="images/logo/roundabouts-logo-black.svg" />
-        <AnimatedImg
-            src={src}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 1 }}
+        <StaticImg
+            src={OuttaYourMind}
+            alt="Outta Your Mind band photo"
         />
     </Container>
 );
@@ -33,7 +31,7 @@ const Container = styled.div`
     background-color: #121517;
 `;
 
-const AnimatedImg = styled(motion.img)`
+const StaticImg = styled(Image)`
     position: absolute;
     width: 100%;
     height: 100%;
