@@ -4,12 +4,10 @@ import Image from 'next/image';
 import OuttaYourMind from '../../public/images/landing/outta-your-mind.jpg';
 
 interface Props {
-    src: string;
+    // src: string;
 }
 
-const LandingImage = ({
-    src,
-}: Props) => (
+const LandingImage = ({}: Props) => (
     <Container>
         <Logo id="logo" src="images/logo/roundabouts-logo-black.svg" />
         <StaticImg
