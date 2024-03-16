@@ -1,6 +1,6 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
+import EventsScreen from '../src/Screens/EventsScreen';
 import { Event, getEvents } from '../src/Services/ContentfulService';
-import MainScreen from '../src/Screens/MainScreen';
 
 interface AppProps {
   events: Array<Event>;
@@ -10,7 +10,7 @@ function App({
   events = []
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
-      <MainScreen events={events} />
+      <EventsScreen events={events} />
   );
 }
 

@@ -7,7 +7,7 @@ const RoundaboutsLogo = () => (
 );
 
 const Logo = styled.img`
-    width: 50vw;
+    width: 40vw;
     min-width: 320px;
 `;
 

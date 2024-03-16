@@ -1,19 +1,50 @@
+@font-face {
+  font-family: 'Cassanet';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Lato"), url("../public/fonts/cassannet_plus_regular-webfont.ttf");
+}
+
 body {
   background-color: #111;
   background-image: url("../public/images/background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  
+  background-attachment: fixed;
+
   font-family: 'Roboto', sans-serif;
   font-size: 18px;
   color: #fff;
 }
 
+@media (max-width: 1200px) {
+  body {
+    font-size: 16px;
+  }
+}
+@media (max-width: 900px) {
+  body {
+    font-size: 14px;
+  }
+}
+@media (max-width: 600px) {
+  body {
+    font-size: 9px;
+  }
+}
+
+
+
 html, body {
   min-height: 100%;
   margin: 0;
   padding: 0;
+}
+
+h1 {
+  font-family: 'Cassanet', sans-serif;
+
 }
 
 a {

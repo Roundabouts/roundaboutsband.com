@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { motion, Variants } from 'framer-motion';
+import RoundaboutsLogo from '../Components/RoundaboutsLogo';
 import SocialIcon from '../Components/Social/SocialIcon';
+import VideoBackground from '../Components/VideoBackground';
 import AppContainer from '../Components/UI/AppContainer';
 import LandingImage from '../Components/LandingImage';
 import Gigs from '../Components/Gigs/Gigs';
@@ -9,53 +11,47 @@ import { EventUtils } from '../Utils/EventUtils';
 import { Vignette } from '../Components/UI/Vignette';
 import Header from '../Components/Header';
 import { Event } from '../Services/ContentfulService';
-import dynamic from 'next/dynamic';
 
-const ReactPlayer = dynamic(() => import('react-player/lazy'), { ssr: false });
-
-interface MainScreenProps {
+interface EventsScreenProps {
   events: Array<Event>,
 }
 
-function MainScreen({
+function EventsScreen({
   events = []
-}: MainScreenProps) {
-  const futureEvents = events
-    .filter(event => EventUtils.isFutureEvent(event))
-    // .slice(0, 8);
+}: EventsScreenProps) {
+  const currentYear = (new Date).getFullYear();
+  const firstYear = events.length > 0 ? new Date(events[0].date).getFullYear() : currentYear;
+  const lastYear = events.length > 0 ? new Date(events[events.length - 1].date).getFullYear() : currentYear;
 
-  const screenWidth = typeof window !== 'undefined' ? window.innerWidth : 0;
+  const [selectedYear, setSelectedYear] = useState(currentYear)
+
+  const futureEvents = events
+    .filter(event => selectedYear === new Date(event.date).getFullYear());
 
   return (
     <AppContainer>
       <Vignette />
-      <Header currentPage="home" />
-
-      <Content>
-        <LandingImage
-          src="/images/landing/outta-your-mind.jpg"
-          alt="Outta Your Mind band photo"
-          width={2000}
-          height={1334}
-        />
-      </Content>
+      <Header currentPage="events" />
 
       <Block>
-        <GigsHeading>Upcoming gigs</GigsHeading>
-        <Gigs events={futureEvents} />
-      </Block>
+        <GigsHeading>
+          <Button disabled={selectedYear <= firstYear} onClick={() => setSelectedYear(selectedYear - 1)}>
+            terug
+          </Button>
+          {selectedYear}
+          <Button disabled={selectedYear >= lastYear} onClick={() => setSelectedYear(selectedYear + 1)}>
+            verder
+          </Button>
+        </GigsHeading>
 
-      <VideoBlock>
-        <GigsHeading>Outta Your Mind</GigsHeading>
-        <VideoPlayer
-          url="https://youtu.be/IVP-hu2gMZM?si=VptHvr3YzIdhjTIo?rel=0"
-          width="100%"
-          height={screenWidth > 800
-            ? 500
-            : 300}
-          controls={true}
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+        <Gigs
+          hideLinks
+          events={futureEvents}
         />
-      </VideoBlock>
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+      </Block>
 
       <Footer>
         <AnimatedSocialIconsContainer
@@ -121,48 +117,29 @@ const Content = styled.div`
 const Block = styled.div`
   position: relative;
   width: 100%;
-  max-width: 980px;
+  max-width: 850px;
   display: flex;
   padding: 4em 0;
   flex: 1;
+  /* max-width: 980px; */
   flex-direction: column;
 `;
 
-const VideoBlock = styled(Block)`
-  margin: 4em 0;
-  max-width: 100%;
-  background-color: #00000055;
-  align-items: center;
-  justify-content: center;;
-  padding: 0;
-`;
-
-const VideoPlayer = styled(ReactPlayer)`
-    width: 100%;
-    max-width: 980px;
-`;
-
 const GigsHeading = styled.h1`
-  position: absolute;
-  top: -1.2em;
-  padding: 0.5em 0.6em 0.2em;
-  background-color: #EF1E66;
-  border-bottom: 0.1em solid yellow;
-  margin-left: 2em;
-
-  font-size: 2em;
+  font-size: 3em;
   line-height: 1em;
-  /* text-shadow: 0.4rem 0.2rem 1rem #00000099; */
+  text-shadow: 0.4rem 0.2rem 1rem #00000099;
   text-transform: uppercase;;
-  transform: rotate(-2deg);
-  display: none;
+  align-self: center;
+`;
+
+const Button = styled.button`
 
 `;
 
 const Footer = styled.div`
   display: flex;
   flex: 1;
-  padding-bottom: 3em;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
@@ -193,4 +170,4 @@ const item: Variants = {
 };
 
 
-export default MainScreen;
+export default EventsScreen;
