@@ -24,13 +24,20 @@ function MainScreen({
     .filter(event => EventUtils.isFutureEvent(event))
     // .slice(0, 8);
 
+  const screenWidth = typeof window !== 'undefined' ? window.innerWidth : 0;
+
   return (
     <AppContainer>
       <Vignette />
       <Header currentPage="home" />
 
       <Content>
-        <LandingImage />
+        <LandingImage
+          src="/images/landing/outta-your-mind.jpg"
+          alt="Outta Your Mind band photo"
+          width={2000}
+          height={1334}
+        />
       </Content>
 
       <Block>
@@ -43,7 +50,9 @@ function MainScreen({
         <VideoPlayer
           url="https://youtu.be/IVP-hu2gMZM?si=VptHvr3YzIdhjTIo?rel=0"
           width="100%"
-          height="500px"
+          height={screenWidth > 800
+            ? 500
+            : 300}
           controls={true}
         />
       </VideoBlock>

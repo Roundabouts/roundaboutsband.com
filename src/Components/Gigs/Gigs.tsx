@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion, Variants } from 'framer-motion';
-import format from 'date-fns/format';
-import formatISO from 'date-fns/formatISO';
 import { FormatUtils } from '../../Utils';
 import { Event } from '../../Services/ContentfulService';
 import { FaGlobeAmericas, FaTicketAlt } from "react-icons/fa";
@@ -73,7 +71,7 @@ const Content = styled.div`
 const Gig = styled.div`
   display: flex;
   margin: 4px;
-  min-height: 1.7em;
+  /* min-height: 1em; */
   flex: 1;
   flex-direction: row;
   justify-content: flex-start;;
@@ -108,6 +106,10 @@ const Links = styled.div`
 
   * {
     margin: 0 0.16em;
+  }
+
+  @media (max-width: 600px) {
+    display: none;
   }
 `;
 

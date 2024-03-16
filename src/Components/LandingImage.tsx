@@ -1,18 +1,27 @@
 import React from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
-import OuttaYourMind from '../../public/images/landing/outta-your-mind.jpg';
 
 interface Props {
-    // src: string;
+    src: string;
+    alt: string;
+    width: number;
+    height: number;
 }
 
-const LandingImage = ({}: Props) => (
+const LandingImage = ({
+    src,
+    alt,
+    width,
+    height,
+}: Props) => (
     <Container>
         <Logo id="logo" src="images/logo/roundabouts-logo-black.svg" />
         <StaticImg
-            src={OuttaYourMind}
-            alt="Outta Your Mind band photo"
+            src={src}
+            alt={alt}
+            width={width}
+            height={height}
         />
     </Container>
 );
@@ -27,6 +36,14 @@ const Container = styled.div`
     justify-content: center;
     
     background-color: #121517;
+
+    @media (max-width: 900px) {
+        height: 60vh;
+    }
+
+    @media (max-width: 600px) {
+        height: 50vh;
+    }
 `;
 
 const StaticImg = styled(Image)`
