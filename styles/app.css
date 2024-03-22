@@ -42,9 +42,8 @@ html, body {
   padding: 0;
 }
 
-h1 {
+h1, h2 {
   font-family: 'Cassanet', sans-serif;
-
 }
 
 a {

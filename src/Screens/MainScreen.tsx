@@ -1,7 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { motion, Variants } from 'framer-motion';
-import SocialIcon from '../Components/Social/SocialIcon';
 import AppContainer from '../Components/UI/AppContainer';
 import LandingImage from '../Components/LandingImage';
 import Gigs from '../Components/Gigs/Gigs';
@@ -10,6 +8,7 @@ import { Vignette } from '../Components/UI/Vignette';
 import Header from '../Components/Header';
 import { Event } from '../Services/ContentfulService';
 import dynamic from 'next/dynamic';
+import Footer from '../Components/Footer';
 
 const ReactPlayer = dynamic(() => import('react-player/lazy'), { ssr: false });
 
@@ -57,56 +56,7 @@ function MainScreen({
         />
       </VideoBlock>
 
-      <Footer>
-        <AnimatedSocialIconsContainer
-            initial="hidden"
-            animate="visible"
-            variants={{
-              visible: {
-                transition: {
-                  delayChildren: 1,
-                  staggerChildren: 0.3,
-                },
-              },
-            }}
-        >
-          <AnimatedSocialIcon variants={item}>
-            <SocialIcon
-              name="facebook"
-              url="https://www.facebook.com/roundaboutsband"
-              icon="FaFacebookSquare"
-            />
-          </AnimatedSocialIcon>
-          <AnimatedSocialIcon variants={item}>
-            <SocialIcon
-              name="instagram"
-              url="https://www.instagram.com/roundaboutsband"
-              icon="FaInstagram"
-            />
-          </AnimatedSocialIcon>
-          <AnimatedSocialIcon variants={item}>
-            <SocialIcon
-              name="tiktok"
-              url="https://www.tiktok.com/@roundaboutsband"
-              icon="FaTiktok"
-            />
-          </AnimatedSocialIcon>
-          <AnimatedSocialIcon variants={item}>
-            <SocialIcon
-              name="youtube"
-              url="https://www.youtube.com/channel/UCbJAWKjqUS1ZxJYf7PMcemA"
-              icon="FaYoutube"
-            />
-          </AnimatedSocialIcon>
-          <AnimatedSocialIcon variants={item}>
-            <SocialIcon
-              name="soundcloud"
-              url="https://soundcloud.com/roundaboutsband"
-              icon="FaSoundcloud"
-            />
-          </AnimatedSocialIcon>
-        </AnimatedSocialIconsContainer>
-      </Footer>
+      <Footer />
     </AppContainer>
   );
 }
@@ -158,39 +108,6 @@ const GigsHeading = styled.h1`
   display: none;
 
 `;
-
-const Footer = styled.div`
-  display: flex;
-  flex: 1;
-  padding-bottom: 3em;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-`;
-
-const AnimatedSocialIconsContainer = styled(motion.ul)`
-  display: flex;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  `;
-
-const AnimatedSocialIcon = styled(motion.li)`
-  margin: 0;
-  padding: 0;
-`;
-
-const item: Variants = {
-  hidden: {
-    y: '0.3em',
-    opacity: 0,
-  },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: { duration: 0.6, opacity: { duration: 1.2 } },
-  },
-};
 
 
 export default MainScreen;
