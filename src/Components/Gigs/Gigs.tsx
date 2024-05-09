@@ -32,7 +32,7 @@ function Gigs({
           <Gig key={i}>
             <Date>
               <DateWrapper>
-                {FormatUtils.formatIsoDate(event.date, 'MMMM d')}
+                {FormatUtils.formatIsoDate(event.date, 'MMM dd')}
               </DateWrapper>
               <Note>{FormatUtils.formatIsoDate(event.date, 'EEEE')}</Note>
             </Date>
