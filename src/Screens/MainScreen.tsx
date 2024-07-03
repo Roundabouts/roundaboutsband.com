@@ -32,7 +32,7 @@ function MainScreen({
 
       <Content>
         <LandingImage
-          src="/images/landing/outta-your-mind.jpg"
+          src="/images/landing/the-other-side.jpg"
           alt="Outta Your Mind band photo"
           width={2000}
           height={1334}
@@ -45,9 +45,9 @@ function MainScreen({
       </Block>
 
       <VideoBlock>
-        <GigsHeading>Outta Your Mind</GigsHeading>
+        <GigsHeading>The Other Side</GigsHeading>
         <VideoPlayer
-          url="https://youtu.be/IVP-hu2gMZM?si=VptHvr3YzIdhjTIo?rel=0"
+          url="https://youtu.be/mbxr73p7KxI?si=VptHvr3YzIdhjTIo?rel=0"
           width="100%"
           height={screenWidth > 800
             ? 500
