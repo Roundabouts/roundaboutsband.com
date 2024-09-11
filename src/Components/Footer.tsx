@@ -61,8 +61,13 @@ const Footer = () => (
         <Contact>
             <h2>Contact</h2>
             Robin van de Wetering<br />
-            +31 6 23 79 24 73<br />
             info@roundaboutsband.com<br />
+            +31 623 7924 73<br />
+        </Contact>
+        <Contact>
+            <h2>Bookings</h2>
+            Frank Satink (Goomah Music)<br />
+            frank@goomahmusic.nl<br />
         </Contact>
       </Container>
 );
@@ -79,22 +84,24 @@ const Container = styled.div`
 
   h2 {
     font-size: 0.9em;
+    margin-bottom: 0.3em;
+    color: #FFFFFF;
   }
 `;
 
 const Socials = styled.div`
     display: flex;
-    flex: 2;
+    flex: 1.8;
     flex-direction: column;
 `;
 
 const Contact = styled.div`
     display: flex;
-    flex: 1;
+    flex: 1.2;
     flex-direction: column;
-    /* line-height: 2em; */
+    line-height: 1.4em;
+    color: #FFFFFF99;
 `;
-
 
 
 const AnimatedSocialIconsContainer = styled(motion.ul)`
