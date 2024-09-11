@@ -30,7 +30,7 @@ const SocialIcon = ({
 const Link = styled.a`
     display: flex;
     position: relative;
-    width: 1.4em;
+    width: 1em;
     height: 1em;
     margin: 0 5px;
     padding: 10px;
