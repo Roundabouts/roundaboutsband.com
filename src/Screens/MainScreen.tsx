@@ -20,8 +20,8 @@ function MainScreen({
   events = []
 }: MainScreenProps) {
   const futureEvents = events
-    .filter(event => EventUtils.isFutureEvent(event))
-    // .slice(0, 8);
+    // .filter(event => EventUtils.isFutureEvent(event))
+    .slice(-14);
 
   const screenWidth = typeof window !== 'undefined' ? window.innerWidth : 0;
 

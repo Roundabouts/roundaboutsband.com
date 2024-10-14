@@ -1,9 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
-import { motion, Variants } from 'framer-motion';
+import styled, { css } from 'styled-components';
+import { Variants } from 'framer-motion';
 import { FormatUtils } from '../../Utils';
 import { Event } from '../../Services/ContentfulService';
 import { FaGlobeAmericas, FaTicketAlt } from "react-icons/fa";
+import { EventUtils } from '../../Utils/EventUtils';
 
 const item: Variants = {
   hidden: {
@@ -29,7 +30,7 @@ function Gigs({
   return (
       <Content>
         {events.map((event, i) => (
-          <Gig key={i}>
+          <Gig key={i} isPassed={EventUtils.isPassedEvent(event)}>
             <Date>
               <DateWrapper>
                 {FormatUtils.formatIsoDate(event.date, 'MMM dd')}
@@ -38,7 +39,7 @@ function Gigs({
             </Date>
             <Middle>
               <NameWrapper>
-                <Name>{event.title}</Name>
+                <Name isPassed={EventUtils.isPassedEvent(event)}>{event.title}</Name>
                 {event.soldOut && (
                   <SoldOutLabel>Sold out</SoldOutLabel>
                 )}
@@ -68,10 +69,9 @@ const Content = styled.div`
   flex-direction: column;;
 `;
 
-const Gig = styled.div`
+const Gig = styled.div<{ isPassed?: boolean }>`
   display: flex;
   margin: 4px;
-  /* min-height: 1em; */
   flex: 1;
   flex-direction: row;
   justify-content: flex-start;;
@@ -79,6 +79,10 @@ const Gig = styled.div`
   font-size: 1.3em;
   color: #637674;
   font-weight: 900;
+
+  ${props => props.isPassed && css`
+    opacity: 0.6;
+  `}
 `;
 
 const Date = styled.div`
@@ -123,9 +127,15 @@ const NameWrapper = styled.div`
   align-items: center;
 `;
 
-const Name = styled.span`
+const Name = styled.span<{ isPassed?: boolean }>`
   color: #FCD7AA;
   text-align: left;
+
+  ${props => props.isPassed && css`
+    text-decoration: line-through;
+    text-decoration-color: #FCD7AA;
+    text-decoration-thickness: 2px;;
+  `}
 `;
 
 const SoldOutLabel = styled.div`

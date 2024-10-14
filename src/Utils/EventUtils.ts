@@ -8,4 +8,9 @@ export class EventUtils {
         const eventDate = parseISO(event.date);
         return isFuture(eventDate) || isToday(eventDate);
     }
+
+    static isPassedEvent(event: Event): boolean {
+        const eventDate = parseISO(event.date);
+        return !isFuture(eventDate) && !isToday(eventDate);
+    }
 }
